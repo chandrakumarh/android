@@ -35,4 +35,13 @@ platform :android do
     gradle(task: "clean assembleRelease")
     upload_to_play_store
   end
+lane :upload_to_play_store do
+  upload_to_play_store(
+    track: 'internal',  # Track to upload to (e.g., internal, alpha, beta, production)
+    aab: '/Users/rspl/workspace/andriod/platforms/android/app/build/outputs/bundle/release/app-release.aab',  # Path to your AAB file
+    skip_upload_metadata: true,  # Set to true if you don't want to upload metadata
+    skip_upload_images: true  # Set to true if you don't want to upload images
+  )
+end
+
 end
